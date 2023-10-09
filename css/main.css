@@ -10,18 +10,20 @@
 /* 00: CSS variables */
 :root{
     --page-color: hsla(171, 45%, 81%, 0.9);
-    --body-color: hsla(0, 86%, 47%, 0.7);
+    --body-color: hsla(0, 86%, 47%, 0.9);
     --sidebar-color: hsla(100, 50%, 50%, 0.8);
-    --footbar-color: hsla(200, 90%, 50%, 0.5);
-    --tab-color: hsla(300, 90%, 50%, 0.9);
-    --footbar-height: 10vh
+    --footbar-color: hsla(200, 90%, 50%, 1);
+    --tab-color: hsla(300, 90%, 50%, 1);
+    --footbar-height: 15vh;
+    --page-position: 85%;
+    --page-width: 30%;
+    --tab-gap: 2vw;
+    --tab-width: 20vw;
+    --tab-height: 5vh;
 }
 
 /* 01: Color */
-html {
-    background-color: hsla(145, 35%, 89%, 0.9);
-    padding: 5%
-}
+
 
 body {
     background-color: var(--body-color);
@@ -36,14 +38,60 @@ aside.sidebar{
     background-color: var(--page-color);
 }
 /* 02: Topography */
+@font-face {
+    font-family: 'myfont';
+    src : url(../fonts/chunkfive.woff);
+}
+
+header h1{
+    font-family: 'myfont', sans-serif;
+    font-weight: bold;
+}
+h3{
+    font-family: 'Dela Gothic One', cursive;
+    font-size: 1.25em;
+}
+a{
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+
 
 /* 03: Layout */
 div.explanation, div.requirements, div.benefits, div.participation{
-    position: fixed;
-    top: 45vh;
-    width: 70%;
-    padding: 5%;
+    position:fixed;
+    top: var(--page-position);
+    width: var(--page-width);
+    padding-left: 10px;
+    margin: 10px;
+    border: 1px solid black;
     background-image: url(../img/newspaper3.jpg);
+}
+div.explanation{
+    left: 0vw;
+    
+}
+div.requirements{
+    left: 20vw;
+    width: 28vw;
+}
+div.benefits{
+    left: 40vw;
+}
+div.participation{
+    left: 60vw;
+}
+
+div.explanation h3, div.requirements h3,div.benefits h3,div.participation h3{
+    margin-top: -15%;
+    width:var(--tab-width);
+    height: var(--tab-height);
+    background-color: var(--tab-color);
+    border-top-left-radius: 50px 100px;
+    border-bottom-right-radius: 90%;
+    border-bottom-left-radius: 90%;
+    border-top-right-radius: 50px 70px;
 }
 /* div #zen-supporting{
     position: relative;
@@ -53,10 +101,10 @@ div.explanation, div.requirements, div.benefits, div.participation{
 } */
 aside.sidebar{
     position:absolute;
-    top: 40px;
+    top: 20%;
     right: 0;
-    width: 20%;
-
+    width: 15%;
+    height: 100%;
 }
 div.extra2{
     position:fixed;
@@ -65,5 +113,57 @@ div.extra2{
     width:100%;
     height:var(--footbar-height);
     background-color: var(--footbar-color);
+}
+
+/* footer -- try outside of class
+introduction - in the middle */
+footer{
+    position: fixed;
+    bottom: 0;
+    left: 40% ;
+    width: 20%;
+    text-align: center;
+    background-color: var(--footbar-color);
+    border: 1px solid var(--border-color);
+    z-index: 3;
+}
+
+div.extra1{
+    position: fixed;
+    bottom: 5%;
+    left: 35%;
+    width: 30%;
+    height: 80%;
+    padding: 2%;
+    background-image: url(../img/newspaper1.jpg);
+    transform:rotate(-20deg) translate(10%,-10%);
+    z-index: -1;
+}
+section.intro{
+    position: fixed;
+    top: 0%;
+    left: 30%;
+    width: 30%;
+    height: 80%;
+    padding: 2%;
+    background-image: url(../img/newspaper3.jpg);
+    transform: rotate(-20deg);
+}
+/* 04: other decoration  */
+div.explanation:active,div.requirements:active,div.benefits:active,div.participation:active{
+    top:25vh;
+}
+h3:hover{
+    background-color: rgb(67,150,90);
+}
+a:hover{
+    font-size: 1.9em;
+}
+p::first-letter{
+    font-size: 1.5em;
+    font-style: italic;;
+}
+p:nth-child(2n){
+    background-color: hsl(64, 83%, 41%);
 }
 

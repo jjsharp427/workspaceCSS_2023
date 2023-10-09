@@ -3,11 +3,19 @@
 00: CSS variables
 01: Color
 02: Topography
+03: Layout
 
 */
 
 /* 00: CSS variables */
-
+:root{
+    --page-color: hsla(171, 45%, 81%, 0.9);
+    --body-color: hsla(0, 86%, 47%, 0.7);
+    --sidebar-color: hsla(100, 50%, 50%, 0.8);
+    --footbar-color: hsla(200, 90%, 50%, 0.5);
+    --tab-color: hsla(300, 90%, 50%, 0.9);
+    --footbar-height: 10vh
+}
 
 /* 01: Color */
 html {
@@ -16,13 +24,46 @@ html {
 }
 
 body {
-    background-color: hsla(241, 86%, 47%, 0.5);
-    padding: 5%
+    background-color: var(--body-color);
 }
-
-
-
-
-
+aside.sidebar{
+    background-color: var(--sidebar-color);
+}
+#zen-intro{
+    background-color: var(--page-color);
+}
+#zen-supporting{
+    background-color: var(--page-color);
+}
 /* 02: Topography */
+
+/* 03: Layout */
+div.explanation, div.requirements, div.benefits, div.participation{
+    position: fixed;
+    top: 45vh;
+    width: 70%;
+    padding: 5%;
+    background-image: url(../img/newspaper3.jpg);
+}
+/* div #zen-supporting{
+    position: relative;
+    top: 0px;
+    left: 25%;
+    width: 50%;
+} */
+aside.sidebar{
+    position:absolute;
+    top: 40px;
+    right: 0;
+    width: 20%;
+
+}
+div.extra2{
+    position:fixed;
+    bottom:0%;
+    left:0%;
+    width:100%;
+    height:var(--footbar-height);
+    background-color: var(--footbar-color);
+}
 

@@ -15,7 +15,7 @@
     --footbar-color: hsla(200, 90%, 50%, 1);
     --tab-color: hsla(300, 90%, 50%, 1);
     --footbar-height: 15vh;
-    --page-position: 85%;
+    --page-position: 88%;
     --page-width: 30%;
     --tab-gap: 2vw;
     --tab-width: 20vw;
@@ -67,6 +67,12 @@ div.explanation, div.requirements, div.benefits, div.participation{
     margin: 10px;
     border: 1px solid black;
     background-image: url(../img/newspaper3.jpg);
+    transition: all 3s ease-in-out;
+    align-items: center;
+}
+div.explanation h3:hover{
+    background-color: var(--footbar-color);
+    
 }
 div.explanation{
     left: 0vw;
@@ -101,10 +107,10 @@ div.explanation h3, div.requirements h3,div.benefits h3,div.participation h3{
 } */
 aside.sidebar{
     position:absolute;
-    top: 20%;
+    top: 10%;
     right: 0;
-    width: 15%;
-    height: 100%;
+    width: 25%;
+    height: 60%;
 }
 div.extra2{
     position:fixed;
@@ -120,8 +126,8 @@ introduction - in the middle */
 footer{
     position: fixed;
     bottom: 0;
-    left: 40% ;
-    width: 20%;
+    left: 28% ;
+    width: 10%;
     text-align: center;
     background-color: var(--footbar-color);
     border: 1px solid var(--border-color);
@@ -130,24 +136,25 @@ footer{
 
 div.extra1{
     position: fixed;
-    bottom: 5%;
+    top: 10%;
     left: 35%;
     width: 30%;
     height: 80%;
     padding: 2%;
     background-image: url(../img/newspaper1.jpg);
-    transform:rotate(-20deg) translate(10%,-10%);
+    translate: (10%, 10%);
+    transform: rotate(10deg);
     z-index: -1;
 }
 section.intro{
     position: fixed;
-    top: 0%;
+    top: 10%;
     left: 30%;
     width: 30%;
     height: 80%;
     padding: 2%;
     background-image: url(../img/newspaper3.jpg);
-    transform: rotate(-20deg);
+    transform: rotate(-15deg);
 }
 /* 04: other decoration  */
 div.explanation:active,div.requirements:active,div.benefits:active,div.participation:active{
@@ -163,7 +170,66 @@ p::first-letter{
     font-size: 1.5em;
     font-style: italic;;
 }
-p:nth-child(2n){
+/* p:nth-child(2n){
     background-color: hsl(64, 83%, 41%);
+} */
+/* More practice on transitions */
+section.intro h3 ~p{
+    opacity: 0;
+    transition: all 1s ease-in-out;
+}
+section.intro h3:hover ~p{
+    opacity: 1;
+    transform: scale(0.3);
+    transform: rotate(360deg);
+}
+/* 06: ANIMATIONS */
+footer{
+    animation: 7s ease-in-out 2s alternate infinite moving;
 }
 
+@keyframes moving{
+    from{
+        transform: translate(-500px,0px);
+    }
+    30%{
+        transform: translate(-300px,0px);
+    }
+    60%{
+        transform: translate(50px,0px);
+    }
+    100%{
+        transform: translate(400px,0px);
+    }
+}
+h2{
+    background-image: linear-gradient(cyan,blue,purple);
+    animation: 1s infinite running change;
+}
+@keyframes change{
+    from{
+        background-image: linear-gradient(cyan,blue,purple);
+    }
+    15%{
+        background-image: linear-gradient(red,orange,yellow);
+    }
+    30%{
+        background-image: linear-gradient(white,cyan,blue);
+    }
+    60%{
+        background-image: linear-gradient(green,blue,indigo);
+    }
+    75%{
+        background-image: linear-gradient(white,grey,black);
+    }
+    95%{
+        background-image: linear-gradient(pink,yellow,orange);}
+    }
+div.extra1{
+    border-image: linear-gradient(blue,purple) 10 / 14px round;
+}
+aside.sidebar{
+    font-size: 0.8em;
+    clip-path: polygon(0, 0, 0, 70%, 50%, 100%, 100%, 70%, 100%, 0);
+    
+}
